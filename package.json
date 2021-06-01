@@ -1,0 +1,150 @@
+{
+  "name": "feredatated-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverless.yaml",
+  "scripts": {
+    "start:dev": "sls offline --env local --httpPort 8081 --noPrependStageInUrl"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb-typescript/base",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "no-console": 2,
+      "no-process-env": 2,
+      "import/prefer-default-export": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "trailingComma": "all"
+        }
+      ]
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@libs(.*)$": "<rootDir>/src/utils/$1",
+      "^@datasources(.*)$": "<rootDir>/src/datasources/$1"
+    },
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ],
+    "coverageReporters": [
+      "cobertura",
+      "lcov"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "ignoreCodes": [
+            "TS2345"
+          ]
+        }
+      }
+    }
+  },
+  "jestSonar": {
+    "reportPath": "coverage/jest",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/federation": "^0.25.1",
+    "@apollo/gateway": "^0.28.2",
+    "@graphql-tools/merge": "^6.2.14",
+    "@middy/core": "^1.5.0",
+    "@middy/http-json-body-parser": "^1.5.0",
+    "@vendia/serverless-express": "^4.3.7",
+    "apollo-datasource-rest": "^0.14.0",
+    "apollo-server": "^2.25.0",
+    "apollo-server-lambda": "^2.25.0",
+    "axios": "^0.21.1",
+    "convict": "^6.0.0",
+    "convict-format-with-validator": "^6.0.0",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "graphql-directive-auth": "^0.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash.omit": "^4.5.0",
+    "nodemon": "^2.0.7",
+    "serverless-plugin-datadog": "^2.18.0",
+    "serverless-plugin-resource-tagging": "^1.0.11",
+    "serverless-provisioned-concurrency-autoscaling": "^1.2.0",
+    "source-map-support": "^0.5.19",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/github": "^7.1.1",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "@serverless/typescript": "^2.16.0",
+    "@stoplight/prism-cli": "^4.2.3",
+    "@types/aws-lambda": "^8.10.64",
+    "@types/convict": "^5.2.2",
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.20",
+    "@types/lodash.omit": "^4.5.6",
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "commitizen": "^4.2.3",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "fork-ts-checker-webpack-plugin": "^6.0.0",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "jest-sonar-reporter": "^2.0.0",
+    "json-schema-to-ts": "^1.4.1",
+    "prettier": "^2.2.1",
+    "prism": "^4.1.2",
+    "semantic-release": "^17.2.3",
+    "semantic-release-git-branches": "^1.2.1",
+    "serverless": "^2.16.0",
+    "serverless-domain-manager": "^5.1.0",
+    "serverless-dotenv-plugin": "^3.5.1",
+    "serverless-offline": "^6.9.0",
+    "serverless-plugin-git-variables": "^5.1.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "serverless-webpack": "^5.2.0",
+    "ts-jest": "^26.5.1",
+    "ts-loader": "^8.0.10",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typedoc": "^0.20.25",
+    "typedoc-plugin-markdown": "^3.5.0",
+    "typescript": "^4.1.3",
+    "webpack": "^5.4.0",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
